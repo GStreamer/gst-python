@@ -3,7 +3,7 @@ AC_PREREQ(2.60)
 dnl initialize autoconf
 dnl when going to/from release please set the nano (fourth number) right !
 dnl releases only do Wall, cvs and prerelease does Werror too
-AC_INIT(GStreamer Python Bindings, 0.10.20.1,
+AC_INIT(GStreamer Python Bindings, 0.11.0.1,
     http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer,
     gst-python)
 
@@ -49,8 +49,8 @@ AC_SUBST(PYGTK_REQ, 2.6.3)
 AC_SUBST(PYGOBJECT_REQ, 2.11.2)
 AC_SUBST(GLIB_REQ,  2.8.0)
 AC_SUBST(GTK_REQ,   2.6.0)
-AC_SUBST(GST_REQ,   0.10.20)
-AC_SUBST(GSTPB_REQ, 0.10.20)
+AC_SUBST(GST_REQ,   0.11.0)
+AC_SUBST(GSTPB_REQ, 0.11.0)
 
 AC_DISABLE_STATIC
 
@@ -86,7 +86,7 @@ fi
 AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
 
 dnl check for GStreamer
-GST_MAJORMINOR=0.10
+GST_MAJORMINOR=0.11
 AC_SUBST(GST_MAJORMINOR)
 PKG_CHECK_MODULES(GST, gstreamer-$GST_MAJORMINOR >= $GST_REQ)
 AC_DEFINE_UNQUOTED(GST_MAJORMINOR, "$GST_MAJORMINOR", [Gst MajorMinor version])
