@@ -396,7 +396,7 @@
   (c-name "gst_encoding_profile_set_format")
   (return-type "none")
   (parameters
-    '("GstCaps*" "format")
+    '("const-GstCaps*" "format")
   )
 )
 
@@ -489,7 +489,7 @@
   (parameters
     '("const-gchar*" "name" (null-ok) (default "NULL"))
     '("const-gchar*" "description" (null-ok) (default "NULL"))
-    '("GstCaps*" "format")
+    '("const-GstCaps*" "format")
     '("const-gchar*" "preset"(null-ok) (default "NULL"))
   )
 )
@@ -499,9 +499,9 @@
   (is-constructor-of "GstEncodingVideoProfile")
   (return-type "GstEncodingVideoProfile*")
   (parameters
-    '("GstCaps*" "format")
+    '("const-GstCaps*" "format")
     '("const-gchar*" "preset" (null-ok) (default "NULL"))
-    '("GstCaps*" "restriction" (null-ok))
+    '("const-GstCaps*" "restriction" (null-ok))
     '("guint" "presence")
   )
 )
@@ -511,9 +511,9 @@
   (is-constructor-of "GstEncodingAudioProfile")
   (return-type "GstEncodingAudioProfile*")
   (parameters
-    '("GstCaps*" "format")
+    '("const-GstCaps*" "format")
     '("const-gchar*" "preset" (null-ok) (default "NULL"))
-    '("GstCaps*" "restriction" (null-ok))
+    '("const-GstCaps*" "restriction" (null-ok))
     '("guint" "presence")
   )
 )
