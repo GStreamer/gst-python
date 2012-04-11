@@ -372,9 +372,12 @@ override-slot GError.tp_str
 static PyObject *
 _wrap_gst_g_error_tp_str(PyGObject *self)
 {
+    PyObject *ret;
     GError *error = (GError*)self->obj;
-    return PyString_FromString(gst_error_get_message (error->domain,
-						      error->code));
+    gchar *message = gst_error_get_message (error->domain, error->code);
+    ret = PyString_FromString(message);
+    g_free (message);
+    return ret;
 }
 %%
 override-attr GstDate.day
