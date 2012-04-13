@@ -372,6 +372,7 @@
 
 (define-function event_new_downstream_force_key_unit
   (c-name "gst_video_event_new_downstream_force_key_unit")
+  (caller-owns-return #t)
   (return-type "GstEvent*")
   (parameters
     '("GstClockTime" "timestamp")
@@ -397,6 +398,7 @@
 
 (define-function event_new_upstream_force_key_unit
   (c-name "gst_video_event_new_upstream_force_key_unit")
+  (caller-owns-return #t)
   (return-type "GstEvent*")
   (parameters
     '("GstClockTime" "running_time")
