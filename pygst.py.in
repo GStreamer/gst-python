@@ -26,6 +26,7 @@
 # In order to have backward compatibility
 
 import sys
+import os
 
 __all__ = ['require']
 
@@ -42,6 +43,7 @@ class RequiredVersionError(ValueError, AssertionError):
 
 def require(version):
     global _pygst_required_version
+    global _pygst_dir
 
     if _pygst_required_version != None:
         if _pygst_required_version != version:
@@ -54,6 +56,12 @@ def require(version):
 
     if version != _pygst_version:
         raise RequiredVersionError, "Only version '%s' is available" % _pygst_version
+
+    # try to provide a relative path if _pygst_dir doesn't exists for
+    # relocations
+    _rel_pygst_dir = os.path.join(os.path.dirname(__file__), 'gst-0.10')
+    if not os.path.exists(_pygst_dir) and os.path.exists(_rel_pygst_dir):
+        _pygst_dir = _rel_pygst_dir
 
     # move the pygst path to the front
     while _pygst_dir in sys.path:
