@@ -146,11 +146,11 @@ class Pad(Gst.Pad):
 
     def set_query_function(self, func):
         self._real_query_func = func
-        self.set_query_function_full(self._chain_override, None)
+        self._real_set_query_function_full(self._query_override, None)
 
     def set_query_function_full(self, func, udata):
         self._real_query_func = func
-        self._real_set_query_function_full(self._query_override, None)
+        self._real_set_query_function_full(self._query_override, udata)
 
     def query_caps(self, filter=None):
         return Gst.Pad.query_caps(self, filter)
